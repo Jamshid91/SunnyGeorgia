@@ -31,6 +31,13 @@ searchClose.addEventListener('click', () => {
     body.classList.remove('overflow-hidden');
 });
 
+window.onclick = function(e) {
+    if(e.target == search) {
+        search.classList.add('d-none');
+        body.classList.remove('overflow-hidden'); 
+    }
+}
+
 
 $('.menu-title').click(function() {
     $(this).siblings().removeClass('showMenuList');

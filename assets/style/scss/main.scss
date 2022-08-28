@@ -37,6 +37,19 @@ button {
 .slick-slide{
     margin:0 8px;
 }
+.slick-list {
+    padding: 20px 0;
+}
+.slick-active {
+    animation: slick .7s;
+}
+@keyframes slick {
+    from {
+        transform: scale(0.5);
+    } to {
+        transform: scale(1);
+    }
+}
 .slick-next,
 .slick-prev{
     width:48px;
@@ -97,6 +110,7 @@ button {
         transition: .3s all;
         font-size: 14px;
         font-weight: 600;
+        height: 25px;
         cursor: pointer;
         &:hover {
             color: var(--primary);
@@ -111,15 +125,21 @@ button {
         background: var(--white);
         box-shadow: 0px 20px 30px -6px rgba(45, 55, 72, 0.8);
         border-radius: 8px;
-        padding: 16px 24px;
         opacity: 0;
         transition: .3s all;
         visibility: hidden;
         z-index: -1;
         li {
             margin-bottom: 5px;
+            color: var(--text-gray);
+            transition: .3s all;
+            font-size: 14px;
+            font-weight: 500;
             &:last-child {
                 margin-bottom: 0;
+            }
+            &:hover {
+                color: var(--primary);
             }
         }
         &__link {
@@ -142,7 +162,35 @@ button {
             opacity: 1;
             visibility: visible;
             z-index: 10;
+            white-space: nowrap;
+            padding: 10px 0;
+            &__link {
+                white-space: nowrap; 
+            }
         }
+    }
+    .header-list li {
+        position: relative;
+        padding: 0px 15px;
+    }
+    .subMenu {
+        &-item {
+            position: absolute;
+        left: 90%; 
+        top: 0;
+        background: var(--white);
+        border-radius: 0 8px 8px 8px;
+        padding: 0 10px;
+        opacity: 0;
+        transition: .3s all;
+        }
+        &:hover {
+            color: var(--primary);
+        }
+    }
+    .header-list li:hover .subMenu-item{
+        left: 99%; 
+        opacity: 1;
     }
 
     &-search,
@@ -430,6 +478,13 @@ button {
         padding: 32px;
         border-radius: 16px;
         overflow: hidden;
+        transition: .3s all;
+        &:hover {
+            transform: translateY(-7px);
+            color: #fff;
+            box-shadow: 3px 5px 8px 0px #0008;
+            border-radius: 16px;
+        }
         img {
             z-index: 0;
             object-fit: cover;
