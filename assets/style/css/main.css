@@ -97,6 +97,9 @@
 body {
   font-family: 'Montserrat', sans-serif !important;
   overflow-x: hidden;
+  -webkit-transition: .5s all;
+  -o-transition: .5s all;
+  transition: .5s all;
 }
 
 ul, ol, li {
@@ -578,8 +581,12 @@ button {
   left: 0;
   -webkit-backdrop-filter: blur(4px);
           backdrop-filter: blur(4px);
-  z-index: 9999;
   padding: 35px 0;
+  opacity: 0;
+  z-index: -2;
+  -webkit-transition: .5s all;
+  -o-transition: .5s all;
+  transition: .5s all;
 }
 
 .search__close {
@@ -645,23 +652,16 @@ button {
 
 .search-result {
   width: 100%;
-  height: 86px;
+  max-height: 300px;
   background: #fff;
   -webkit-box-shadow: 0px 5px 10px 6px rgba(45, 55, 72, 0.2);
           box-shadow: 0px 5px 10px 6px rgba(45, 55, 72, 0.2);
   -webkit-border-radius: 8px;
           border-radius: 8px;
   margin-top: 16px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
   overflow-y: scroll;
-  padding: 15px 32px;
+  padding: 32px;
+  position: relative;
 }
 
 .search-result::-webkit-scrollbar {
@@ -686,6 +686,63 @@ button {
   font-weight: 500;
   font-size: 14px;
   color: #718096;
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  position: relative;
+  z-index: 5;
+}
+
+.search-result .noResults {
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.search-item {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  z-index: 5;
+}
+
+.search-item li {
+  display: none;
+}
+
+.search-item__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #667EEA;
+  margin: 5px 0;
+}
+
+.search-item__text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #2D3748 !important;
+  margin-bottom: 10px;
+}
+
+.search-item .mark {
+  background-color: #E2E8F0;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  height: auto;
+}
+
+.search .hide {
+  display: inline-block;
+}
+
+.showSearch {
+  opacity: 1;
+  z-index: 9999;
 }
 
 .showMenu {
